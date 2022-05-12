@@ -3,47 +3,73 @@
 using namespace std;
 
 
-
+	int menu (void)
+	{
+	cout << "\nBIENVENIDO AL PROGRAMA PARA LA GESTION DE COMERCIALIZACION DE AUTOS. \n"<<
+	"**********Seleccione la tarea que deseé realizar************" << endl;
+	cout << "\n1: Buesqueda y venta de un auto" << endl;
+	cout << "\n2: Actualizar datos de un auto" << endl;
+	cout << "\n3: Listado de autos ordenados por origen" << endl;
+	cout << "\n4: Datos del auto mas caro y del mas esconomico " << endl;
+	cout << "\n5: Total recaudado en ventas" << endl;
+	}
 
 int main(){
     //Declaración de variables
-    char marca[5], origen[2];
-    float precio, descuento;
-    int id, stock;
+    char marca[50];
+    float precio[50], descuento[50];
+    int id[500], origen[50], stock[1000], i, n, op, op2, max=500;
 
- 
-	cout << "Introduzca los datos del coche" << endl;
-	cout << "Codigo" << endl;
-	cin>> id;
-	cout << "Marca" << endl;
-	cin >> marca ;
-	cout << " Origen" << endl;
-	cin >> origen ;
-	cout << "Precio " << endl;
-	cin>> precio ; 
-    cout << "Descuento" << endl;
-	cin>> descuento ;
-    cout << "precio " << endl;
-	cin>> precio ; 
-    
-    
- 
+	cout<<"Cuanto autos va a ingresar? "<<endl;
+	cin>>n;
+	for(i=0;i<n;i++){
+	cout << "Introduzca los datos del auto" << endl;
+	cout << "Codigo: " << i+1 << endl;
+	cin>> id[i];
+	cout << "Marca: "<< i+1 << endl;
+	cin >> marca[i] ;
+	cout << " Origen (seleccione 1 para Nacional o 2 para importado) \n" << i+1<< endl;
+	cin >> origen[i] ;
+	cout << "Precio: "<< i+1 << endl;
+	cin>> precio[i] ; 
+    cout << "Descuento: " << i+1<< endl;
+	cin >> descuento[i];
+    cout << "Stock: "<< i+1 << endl;
+	cin>> stock[i] ; 
+	}
 	return 0;
-}
 
-/*int menu (void)
-{
-	int w;
- 
-	cout << "Bienvenido al programa de gestion para comercializacion de automoviles. Seleccione la tarea que deseé realizar" << endl;
-	cout << "1: Buesque y venta de un automovil" << endl;
-	cout << "2: Actualizar datos de un automovil" << endl;
-	cout << "3: Listado de automoviles ordenados por origen" << endl;
-	cout << "4: Datos de l automovil mas caro y del automovil mas esconomico " << endl;
-	cout << "5: Total recaudado en ventas" << endl;
-	cin >> w;
-	cin.ignore();
- 
-	return w;
-}
-}*/
+	do{
+	menu();
+	cin>>op;
+	switch (op)
+	{
+	case 1 :
+		i++;
+		cout<<"\n Ingrese el codigo del auto"<< endl;
+		cin>> id[i];
+		cout<<"\n Ingrese 1 para volver al menu y 0 para salir: "<< endl;
+		cin>>op2;
+		break;
+	
+	case 2:
+		cout<<"\n Ingrese 1 para volver al menu y 0 para salir: "<< endl;
+		cin>>op2;
+		break;
+	case 3:
+		for(i=1; i<max;i++)
+		{
+			if( origen[i]=1){
+				cout<<"Nacionales: "<<origen[i]<<endl;
+				}else{
+					cout<<"Importados: "<<origen[i]<<endl;
+				}
+		}
+		cout<<"\n Ingrese 1 para volver al menu y 0 para salir: "<< endl;
+		cin>>op2;
+		break;
+	case 4:	
+	break;
+	}
+	}
+
